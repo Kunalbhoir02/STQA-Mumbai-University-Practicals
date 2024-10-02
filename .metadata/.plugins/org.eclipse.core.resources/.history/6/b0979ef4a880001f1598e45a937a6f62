@@ -1,0 +1,55 @@
+package login_a_specific_web_page7;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+public class Practical_7 {
+
+    public static void main(String[] args) {
+        // Set the path to the GeckoDriver
+        System.setProperty("webdriver.gecko.driver", "D:\\geckodriver.exe");
+        WebDriver driver = new FirefoxDriver(); // Initialize FirefoxDriver
+        
+        try {
+            driver.navigate().to("https://demo.guru99.com/Agile_Project/Agi_V1/");
+            driver.manage().window().maximize();
+
+            // WebDriverWait for elements to be visible or clickable
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+            // Input username
+            WebElement usernameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("uid")));
+            usernameField.sendKeys("1303");
+
+            // Input password
+            WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("password")));
+            passwordField.sendKeys("Guru99");
+
+            // Click login button
+            WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(By.name("btnLogin")));
+            loginButton.click();
+            
+            // Wait for login to complete
+            Thread.sleep(2000); // Optional: Adjust or remove sleep for production code
+
+            // Verify successful login by checking the title
+            wait.until(ExpectedConditions.titleIs("Guru99 Bank Customer HomePage"));
+            String actualTitle = driver.getTitle();
+            String expectedTitle = "Guru99 Bank Customer HomePage";
+
+            // Check if login was successful
+            System.out.println(expectedTitle.equals(actualTitle) ? "Login Successful" : "Login Failed");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        } finally {
+            // Close the browser
+            driver.quit();
+        }
+    }
+}

@@ -1,0 +1,53 @@
+package practicals.Practicals;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+
+public class Practical_11 {
+    public static void main(String[] args) {
+        // Create the frame
+        JFrame frame = new JFrame("Car Names");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 300);
+        
+        // Create the combo box with car names
+        String[] carNames = {
+            "Bugatti",
+            "Ferrari",
+            "Mercedes",
+            "Lamborghini",
+            "Porsche",
+            "Audi",
+            "BMW",
+            "McLaren",
+            "Aston Martin",
+            "Tesla"
+        };
+        
+        JComboBox<String> comboBox = new JComboBox<>(carNames);
+        comboBox.setSelectedIndex(0); // Select the first car by default
+        
+        // Create a button to display the selected option
+        JButton button = new JButton("Show Selected Car");
+        
+        // Add an action listener to the button
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selectedCar = (String) comboBox.getSelectedItem();
+                JOptionPane.showMessageDialog(frame, "Selected car: " + selectedCar);
+            }
+        });
+        
+        // Add components to the frame
+        frame.setLayout(new FlowLayout());
+        frame.add(comboBox);
+        frame.add(button);
+        
+        // Set the frame visibility
+        frame.setVisible(true);
+    }
+}

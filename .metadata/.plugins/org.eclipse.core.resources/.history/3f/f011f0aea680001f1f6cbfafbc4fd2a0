@@ -1,0 +1,20 @@
+package practicals;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Practical5 {
+    public static void main(String[] args) {
+        // Set the path for GeckoDriver
+        System.setProperty("webdriver.gecko.driver","C:\\selenium webdriver\\geckodriver-v0.34.0-win64\\geckodriver.exe");
+        
+        // Initialize FirefoxDriver
+        WebDriver driver = new FirefoxDriver();
+        
+        // Navigate to the specified URL
+        driver.navigate().to("https://cardetailing.com/");
+        
+        // Maximize the browser window
+        driver.manage().window().maximize();
+    }
+}

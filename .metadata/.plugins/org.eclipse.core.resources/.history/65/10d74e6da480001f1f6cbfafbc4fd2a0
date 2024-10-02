@@ -1,0 +1,41 @@
+package practicals.Practicals;
+
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
+
+public class Practical_11_Chrome {
+    public static void main(String[] args) {
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\Downloads\\Programs\\chromedriver-win64\\chromedriver.exe");
+        ChromeOptions options = new ChromeOptions();
+        options.setBinary("C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe");
+        WebDriver driver = new ChromeDriver(options);
+        
+        try {
+            driver.navigate().to("file:///C:/Users/Admin/OneDrive/Documents/Tycs/Stqa/Cars.html");
+            driver.manage().window().maximize();
+            
+            // Add sleep to wait for the page to load
+            Thread.sleep(2000); // Wait for 2 seconds
+            
+            WebElement comboBoxElement = driver.findElement(By.id("cars"));
+            Select comboBox = new Select(comboBoxElement);
+            List<WebElement> options1 = comboBox.getOptions();
+            System.out.println("Number of items in the combo box: " + options1.size());
+            for (WebElement option : options1) {
+                System.out.println("Option: " + option.getText());
+            }
+            WebElement selectedOption = comboBox.getFirstSelectedOption();
+            System.out.println("Selected option: " + selectedOption.getText());
+            System.out.println("Test executed successfully.....");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            driver.quit();
+        }
+    }
+}

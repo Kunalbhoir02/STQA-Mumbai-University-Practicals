@@ -1,0 +1,26 @@
+package practicals;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class practical_5 {
+    public static void main(String[] args) {
+        // Step 1: Set system property for GeckoDriver
+        System.setProperty("webdriver.gecko.driver", "D:\\TYCS 2024-25\\Practicals TYCS MU\\STQA\\geckodriver.exe");
+
+        // Step 2: Initialize FirefoxDriver
+        WebDriver driver = new FirefoxDriver();
+
+        // Step 3: Navigate to a website
+        driver.navigate().to("https://www.youtube.com/results?search_query=4k+videos");
+
+        // Step 4: Maximize the browser window
+        driver.manage().window().maximize();
+
+        // Step 5: Add other actions or verifications if needed
+        // e.g., driver.findElement(By.id("search")).sendKeys("Selenium tutorial");
+
+        // Optional: Close the browser after the test
+        // driver.quit();
+    }
+}

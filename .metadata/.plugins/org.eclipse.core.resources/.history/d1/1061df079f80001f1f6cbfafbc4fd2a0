@@ -1,0 +1,48 @@
+package practicals.Practicals;
+
+import jxl.*;
+import jxl.write.*;
+import jxl.write.Number;
+import java.io.*;
+import java.util.Locale;
+
+public class Practical_8 {
+
+    public static void main(String[] args) throws IOException, WriteException {
+        int r = 0, c = 0;
+        String header[] = {"Student Name ", "Subject 1", "Subject 2",
+                "Subject 3", "Total"};
+        String sName[] = {"Pranav", "Ankur", "Aniket", "Piyush", "Nikhil", "Parvati", "Shivraj", "Yash", "Rohit", "Rahul"};
+        int marks[] = {85, 90, 81, 82, 74, 76, 89, 92, 96, 85};
+        File file = new File("D:student.xls");
+        WorkbookSettings wbSettings = new WorkbookSettings();
+        wbSettings.setLocale(new Locale("en", "EN"));
+        WritableWorkbook workbook = Workbook.createWorkbook(file, wbSettings);
+        workbook.createSheet("Report", 0);
+        WritableSheet excelSheet = workbook.getSheet(0);
+        for (r = 0; r < 1; r++) {
+            for (c = 0; c < header.length; c++) {
+                Label label = new Label(c, r, header[c]);
+                excelSheet.addCell(label);
+            }
+        }
+        for (r = 1; r <= sName.length; r++) {
+            Label label = new Label(0, r, sName[r - 1]);
+            excelSheet.addCell(label);
+        }
+        for (r = 1; r <= sName.length; r++) {
+            for (c = 1; c < 4; c++) {
+                Number num = new Number(c, r, marks[r - 1]);
+                excelSheet.addCell(num);
+            }
+        }
+        for (r = 1; r <= sName.length; r++) {
+            int total = marks[r - 1] * 3;
+            Number num = new Number(4, r, total);
+            excelSheet.addCell(num);
+        }
+        workbook.write();
+        workbook.close();
+        System.out.println("Excel File Created");
+    }
+}

@@ -1,0 +1,38 @@
+package practicals.Practicals;
+
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Practical_11 {
+    public static void main(String[] args) {
+        // Set the path for the GeckoDriver
+        System.setProperty("webdriver.gecko.driver", "D:\\geckodriver.exe");
+        
+        // Create a new instance of the Firefox driver
+        WebDriver driver = new FirefoxDriver();
+        
+        try {
+            // Navigate to the Cars HTML file
+            driver.navigate().to("file:///D:\\TYCS 2024-25\\Practicals TYCS MU\\STQA/Cars.html");
+            driver.manage().window().maximize();
+            WebElement comboBoxElement = driver.findElement(By.id("cars"));
+            Select comboBox = new Select(comboBoxElement);
+            List<WebElement> options1 = comboBox.getOptions();
+            System.out.println("Number of items in the combo box: " + options1.size());
+            for (WebElement option : options1) {
+                System.out.println("Option: " + option.getText());
+            }
+            WebElement selectedOption = comboBox.getFirstSelectedOption();
+            System.out.println("Selected option: " + selectedOption.getText());
+            System.out.println("Test executed successfully.....");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            driver.quit();
+        }
+    }
+}

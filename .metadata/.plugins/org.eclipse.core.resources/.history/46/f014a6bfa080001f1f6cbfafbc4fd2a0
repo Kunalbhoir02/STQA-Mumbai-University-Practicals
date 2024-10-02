@@ -1,0 +1,41 @@
+package practicals.Practicals;
+
+import java.io.File;
+import jxl.Cell;
+import jxl.Sheet;
+import jxl.Workbook;
+
+public class Practical_9 {
+    
+    public static void main(String[] args) {
+        try {
+            Workbook workbook = Workbook.getWorkbook(new File("D:\\TYCS 2024-25\\Practicals TYCS MU\\STQA\\StudentMarks.xls"));
+            Sheet sheet = workbook.getSheet(0);
+            int rows = sheet.getRows();
+            int columns = sheet.getColumns();
+            int count = 0;
+
+            for (int i = 1; i < rows; i++) { // Start from 1 to skip header
+                boolean scored60OrMore = false;
+                for (int j = 2; j < 4; j++) { // Start from 2 and end from 4 which last column of subject 
+                    Cell cell = sheet.getCell(j, i);
+                    int score = Integer.parseInt(cell.getContents());
+                    if (score >= 60) {
+                        scored60OrMore = true;
+                        break; // No need to check other subjects if one score is >= 60
+                    }
+                }
+                if (scored60OrMore) {
+                    count++;
+                }
+            }
+            
+            
+ 
+System.out.println("Number of students who scored 60 or more in any subject: " + count);
+            workbook.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

@@ -1,0 +1,57 @@
+package practicals.Practicals;
+
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Practical_12 {
+    public static void main(String[] args) {
+        // Set the path for the GeckoDriver
+        System.setProperty("webdriver.gecko.driver", "D:\\geckodriver.exe");
+        
+        // Create a new instance of the Firefox driver
+        WebDriver driver = new FirefoxDriver();
+        
+        try {
+            // Navigate to the Checkbox HTML file
+            driver.navigate().to("file:///D:\\TYCS 2024-25\\Practicals TYCS MU\\STQA\\Checkbox.html");
+            driver.manage().window().maximize();
+            
+            // Sleep for 3 seconds to observe the page load
+            Thread.sleep(3000); // Pause for 3 seconds
+            
+            // Find all checkbox elements
+            List<WebElement> checkBoxes = driver.findElements(By.tagName("input"));
+            int checkedCount = 0, uncheckedCount = 0;
+
+            // Iterate through the list of checkboxes and count checked and unchecked
+            for (WebElement checkBox : checkBoxes) {
+                if (checkBox.getAttribute("type").equals("checkbox")) {
+                    boolean isChecked = checkBox.isSelected();
+                    if (isChecked) {
+                        System.out.println("Checkbox with id " + checkBox.getAttribute("id") + " is selected");
+                    } else {
+                        System.out.println("Checkbox with id " + checkBox.getAttribute("id") + " is not selected");
+                    }
+                    // Increment counts
+                    if (isChecked) {
+                        checkedCount++;
+                    } else {
+                        uncheckedCount++;
+                    }
+                }
+            }
+
+            // Print the results
+            System.out.println("No. of selected checkboxes: " + checkedCount);
+            System.out.println("No. of unselected checkboxes: " + uncheckedCount);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // Close the driver
+            driver.quit();
+        }
+    }
+}
