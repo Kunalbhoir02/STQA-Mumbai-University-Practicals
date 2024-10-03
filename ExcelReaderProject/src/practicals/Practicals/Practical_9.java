@@ -10,7 +10,7 @@ public class Practical_9 {
     public static void main(String[] args) {
         try {
             // Load the workbook and the first sheet
-            Workbook workbook = Workbook.getWorkbook(new File("D:\\TYCS 2024-25\\Practicals TYCS MU\\STQA\\student.xls"));
+            Workbook workbook = Workbook.getWorkbook(new File("D:\\STQA\\student.xls"));
             Sheet sheet = workbook.getSheet(0);
             int count = 0;
 

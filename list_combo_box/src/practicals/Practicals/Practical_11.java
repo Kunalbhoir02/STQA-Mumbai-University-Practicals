@@ -10,14 +10,14 @@ import org.openqa.selenium.support.ui.Select;
 public class Practical_11 {
     public static void main(String[] args) {
         // Set the path for the GeckoDriver
-        System.setProperty("webdriver.gecko.driver", "D:\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "D:\\STQA\\geckodriver.exe");
         
         // Create a new instance of the Firefox driver
         WebDriver driver = new FirefoxDriver();
         
         try {
             // Navigate to the Cars HTML file
-            driver.navigate().to("file:///D:\\TYCS 2024-25\\Practicals TYCS MU\\STQA/Cars.html");
+            driver.navigate().to("file:///D:\\STQA/Cars.html");
             driver.manage().window().maximize();
             
             // Wait for the page to load

@@ -12,7 +12,7 @@ public class Practical_8 {
         String[] header = {"Student Name", "Subject 1", "Subject 2", "Subject 3", "Total"};
         String[] sName = {"Pranav", "Ankur", "Aniket", "Piyush", "Nikhil", "Parvati", "Shivraj", "Yash", "Rohit", "Rahul"};
         int[] marks = {85, 90, 81, 82, 74, 76, 89, 92, 96, 85};
-        File file = new File("D:\\TYCS 2024-25\\Practicals TYCS MU\\STQA\\student.xls");
+        File file = new File("D:\\STQA\\student.xls");
 
         // Create WorkbookSettings and set locale
         WorkbookSettings wbSettings = new WorkbookSettings();

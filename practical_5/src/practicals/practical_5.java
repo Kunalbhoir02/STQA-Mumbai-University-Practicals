@@ -6,7 +6,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class practical_5 { 
     public static void main(String[] args) {
         // Set the path for GeckoDriver
-        System.setProperty("webdriver.gecko.driver", "D:\\geckodriver.exe"); // Update path if needed
+        System.setProperty("webdriver.gecko.driver", "D:\\STQA\\geckodriver.exe"); // Update path if needed
 
         // Initialize FirefoxDriver
         WebDriver driver = new FirefoxDriver();

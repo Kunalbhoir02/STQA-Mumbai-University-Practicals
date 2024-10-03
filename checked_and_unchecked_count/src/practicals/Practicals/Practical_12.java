@@ -9,12 +9,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class Practical_12 {
     public static void main(String[] args) {
         // Set GeckoDriver path and initialize driver
-        System.setProperty("webdriver.gecko.driver", "D:\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "D:\\STQA Mumbai University Practicals\\geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
         
         try {
             // Load Checkbox HTML and maximize window
-            driver.navigate().to("file:///D:\\TYCS 2024-25\\Practicals TYCS MU\\STQA\\Checkbox.html");
+            driver.navigate().to("file:///D:\\STQA\\Checkbox.html");
             driver.manage().window().maximize();
             Thread.sleep(3500); // Wait for the page to load
             

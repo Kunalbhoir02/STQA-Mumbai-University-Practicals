@@ -13,7 +13,7 @@ public class practical_7 {
 
     public static void main(String[] args) {
         // Set the path to the GeckoDriver executable
-        System.setProperty("webdriver.gecko.driver", "D:\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "D:\\STQA\\geckodriver.exe");
         WebDriver driver = null;
 
         try {

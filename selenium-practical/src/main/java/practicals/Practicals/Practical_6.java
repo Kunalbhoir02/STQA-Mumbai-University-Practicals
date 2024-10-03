@@ -10,7 +10,7 @@ public class Practical_6 {
 
     public static void main(String[] args) {
 
-        System.setProperty("webdriver.gecko.driver", "D:\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "D:\\STQA\\geckodriver.exe");
         WebDriver driver = null;
 
         try {
@@ -25,19 +25,19 @@ public class Practical_6 {
 
             // Enter first name
             WebElement first_name = driver.findElement(By.id("firstName"));
-            first_name.sendKeys("sejal");
+            first_name.sendKeys("Kunal");
 
             // Enter last name
             WebElement last_name = driver.findElement(By.id("lastName"));
-            last_name.sendKeys("patil");
+            last_name.sendKeys("Bhoir");
 
             // Enter email
             WebElement email = driver.findElement(By.id("userEmail"));
-            email.sendKeys("sejal123@gmail.com");
+            email.sendKeys("kunalbhoir02@gmail.com");
 
             // Select gender
-            WebElement genderFemale = driver.findElement(By.id("gender-radio-2"));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", genderFemale);
+            WebElement genderFemale = driver.findElement(By.id("gender-radio-1"));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", gendermale);
 
             // Enter phone number
             WebElement phone = driver.findElement(By.id("userNumber"));
@@ -45,7 +45,7 @@ public class Practical_6 {
 
             // Enter date of birth
             WebElement birthdate = driver.findElement(By.id("dateOfBirthInput"));
-            birthdate.sendKeys("08 Sep 2004");
+            birthdate.sendKeys("30 Sep 2002");
 
             // Select hobbies
             WebElement hobbies = driver.findElement(By.id("hobbies-checkbox-2"));
